@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,12 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three -> view.setBackgroundColor(Color.BLUE)
             R.id.box_four -> view.setBackgroundColor(Color.MAGENTA)
             R.id.box_five -> view.setBackgroundColor(Color.CYAN)
+
+            // Boxes using custom colors for background
+            R.id.red_button -> box_three.setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> box_four.setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> box_five.setBackgroundResource(R.color.my_green)
+
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
@@ -37,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         val boxFiveText = findViewById<TextView>(R.id.box_five)
         val rootConstraintLayout = findViewById<View>(R.id.constraint_layout)
 
+        val redButton = findViewById<TextView>(R.id.red_button)
+        val greenButton = findViewById<TextView>(R.id.green_button)
+        val yellowButton = findViewById<TextView>(R.id.yellow_button)
+
         // Sets the views in a list
         val clickableViews: List<View> =
             listOf(
@@ -45,7 +56,10 @@ class MainActivity : AppCompatActivity() {
                 boxThreeText,
                 boxFourText,
                 boxFiveText,
-                rootConstraintLayout
+                rootConstraintLayout,
+                redButton,
+                greenButton,
+                yellowButton
             )
 
         // Sets the listener for each view in the list
